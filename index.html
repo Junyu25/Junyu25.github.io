@@ -1,0 +1,193 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Junyu's Blog</title><meta name="description"><meta name="author" content="Junyu Chen"><meta name="copyright" content="Junyu Chen"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yoursite.com/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="website"><meta property="og:title" content="Junyu's Blog"><meta property="og:url" content="http://yoursite.com/"><meta property="og:site_name" content="Junyu's Blog"><meta property="og:description"><meta property="og:image" content="http://yoursite.com/img/junyu.jpg"><meta property="article:published_time" content="2020-08-26T13:27:30.184Z"><meta property="article:modified_time" content="2020-08-26T13:27:30.184Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  hexoversion: '5.0.2',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days',
+  runtime: false,
+  copyright: {"limitCount":50,"languages":{"author":"Author: Junyu Chen","link":"Link: ","source":"Source: Junyu's Blog","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source."}},
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isSidebar: false,
+  postUpdate: '2020-08-26 21:27:30'
+}</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img {
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 5.0.2"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="/img/junyu.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">10</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">7</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">Categories</div><div class="length_num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/CV/"><i class="fa-fw fas fa-address-book"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/img/network.png)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">Junyu's Blog</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/CV/"><i class="fa-fw fas fa-address-book"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site_title">Junyu's Blog</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/Junyu25" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/junyu_pe@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://twitter.com/Junyu_25" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></div></div><div id="scroll_down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/8259f6ab/" title="Bullet Points of 10 Steps to Earning Awesome Grades">     <img class="post_bg" data-lazy-src="/img/10-Steps.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Bullet Points of 10 Steps to Earning Awesome Grades"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/8259f6ab/" title="Bullet Points of 10 Steps to Earning Awesome Grades">Bullet Points of 10 Steps to Earning Awesome Grades</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-08-31T13:03:00.000Z" title="Created 2019-08-31 21:03:00">2019-08-31</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2020-08-26T13:21:08.779Z" title="Updated 2020-08-26 21:21:08">2020-08-26</time></span></div><div class="content">This is a bullet note I take form the book 10 Steps to Earning Awesome Grades written by Thomas Frank.
+
+
+10 Steps to Earning Awesome GradesStep 1 - Pay Better Attention in Class
+Sit Up Front and Be Present
+
+Come Prepared
+
+Get Help from Your Professor (The Right Way)
+
+Keep Those Hands Moving
+
+
+Step 2 - Take More Effective Notes
+Five Excellent Note-Taking Methods
+
+The Outline Method
+The Cornell Method
+The Mind Map Method
+The Flow Method
+The “Write on the Slides” Method
+
+
+Paper Notebooks vs. Laptop ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/8942f5da/" title="The Certificate I got from Coursera">     <img class="post_bg" data-lazy-src="/img/coursera_certificate.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="The Certificate I got from Coursera"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/8942f5da/" title="The Certificate I got from Coursera">The Certificate I got from Coursera</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-08-26T00:55:33.000Z" title="Created 2019-08-26 08:55:33">2019-08-26</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2020-08-26T13:20:05.933Z" title="Updated 2020-08-26 21:20:05">2020-08-26</time></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/DIY/">DIY</a></span></div><div class="content">
+
+
+Why I Chose Coursera?Since I read the MIT CHALLENGE of Scott Young, I always want to achieve such a great feat by learning online. In the past three years, I have tried the most popular MOOC platform. I learned Biochemistry and Synthetic biology on Edx, acquired the Python programming on Udacity, and audited a lot of courses on Coursera. After all the platform I have tried, only the Coursera suite me most. Not only because of the quality of the course are awesome, but also for the Financial a ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/c3af451e/" title="R - Simulation">     <img class="post_bg" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="R - Simulation"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/c3af451e/" title="R - Simulation">R - Simulation</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-05-21T01:37:44.000Z" title="Created 2019-05-21 09:37:44">2019-05-21</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2020-08-26T13:02:04.597Z" title="Updated 2020-08-26 21:02:04">2020-08-26</time></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/R/">R</a></span></div><div class="content">Learning Objectives
+Call the str function on an arbitrary R object   
+
+Simulate a random normal variable with an arbitrary mean and standard deviation
+
+Simulate data from a normal linear model
+
+
+
+
+the str Functionstr: compactly display the internal structure of an R object
+1str(str)
+
+function (object, ...)  
+1str(lm)
+
+function (formula, data, subset, weights, na.action, method = &quot;qr&quot;, model = TRUE, 
+    x = FALSE, y = FALSE, qr = TRUE, singular.ok = TRUE, contrasts = NULL, 
+    offset, ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/2805751/" title="使用Anki记忆的20条原则">     <img class="post_bg" data-lazy-src="/img/anki.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用Anki记忆的20条原则"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/2805751/" title="使用Anki记忆的20条原则">使用Anki记忆的20条原则</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-05-20T11:52:59.000Z" title="Created 2019-05-20 19:52:59">2019-05-20</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2020-08-26T13:17:42.590Z" title="Updated 2020-08-26 21:17:42">2020-08-26</time></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/Anki/">Anki</a></span></div><div class="content">什么是最好、最有效的方式用以编排你将要记忆的内容呢？你学习的速度将取决于你制定牌组素材的方法。坏的卡片等于坏的学习！但如果相同的材料制定出更好的卡片，你将会学得更快、更不费力。
+SuperMemo的创始人Piotr Wozniak教授曾写了详细的原则和建议指导我们如何创建学习材料。这将有助引导我们用最高效的方式去创建和组织我们的Anki牌组。这20条原则将以重要性罗列。
+
+
+
+原则1. 理解在先永远不要记忆你不理解的东西！像一个字一个字记忆文言文没有任何价值，如果你不理解每个字所代表的意思的话。
+更糟糕的是，你在“盲目学习”下浪费的时间相较于学习记忆你理解的东西是巨大的。这将会打乱和破坏你的学习进程。
+当你分享自己的牌组给他人时，这将会是个挑战。你会在接下来的原则中学到个性化和连接自己的材料，这会让他人更难地使用你的牌组，也会让你使用别人的牌组更加困难。
+总之，永远都不要记忆你未首要理解的东西。
+原则2. 全局出发不要记忆关系不紧密的事实。反之，在打散为小的记忆单位前因从全局出发。将一本书或一个章节的中心思想放在一起，确保你知道所学东西的整体轮廓。如果你没有清晰的全局，记忆关系不紧密的 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/4c9b567b/" title="奇特的一生|我的时间统计观">     <img class="post_bg" data-lazy-src="/img/RescueTime.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="奇特的一生|我的时间统计观"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/4c9b567b/" title="奇特的一生|我的时间统计观">奇特的一生|我的时间统计观</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-05-11T00:59:57.000Z" title="Created 2019-05-11 08:59:57">2019-05-11</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2020-08-26T13:19:12.158Z" title="Updated 2020-08-26 21:19:12">2020-08-26</time></span></div><div class="content">
+
+
+《奇特的一生》是俄国生物学家柳比歇夫的一本传记，前几年有似在时间管理这一现代显学中备受推崇，同时也将时间统计推向了新的高峰。传记应是写于几十年前，其本身内容并不会很吸引我。现在想想甚是有像因时间统计需求而被重新挖掘出来的理论指导书籍，不然该如何解释它先前的名不见经传？即便如此，《奇特的一生》还是为我们提供了时间统计的另一思路。李笑来老师曾想《把时间当做朋友》，而柳比歇夫却更像是在于时间做斗争。就是那对时间的锱铢必较，他记录下了以每分钟为单位的时间消耗，创造了独有的时间统计法。当然说是走向人生巅峰也不足为过，他在生物内的诸多领域均有建树。而重要的是，在他忙碌的一生中虽说不上“奇特”，但我却觉得他活得比大多数人都长。这当然不是以岁数来衡量的，而是在他那以分钟为统计单位下，他做的事情比一般人都多得多！实在难以想象他能自始自终坚持了整整56年！我也曾试过atimelogger, 爱今天等时间统计软件，却无一不是以失败而告终。这种无时无刻重复性地统计在真正实行起来是确实极度地消耗精力。管理学大师德鲁克曾言“What gets measured, gets managed.” 在我看来“真正 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/eb5da1c8/" title="Where in the Genome Does DNA Replication Begin?">     <img class="post_bg" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Where in the Genome Does DNA Replication Begin?"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/eb5da1c8/" title="Where in the Genome Does DNA Replication Begin?">Where in the Genome Does DNA Replication Begin?</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-05-10T12:19:30.000Z" title="Created 2019-05-10 20:19:30">2019-05-10</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2019-05-20T12:11:46.000Z" title="Updated 2019-05-20 20:11:46">2019-05-20</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/BioInfo/">BioInfo</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/BioInfo/">BioInfo</a></span></div><div class="content">1.1 A Journey of a Thousand Miles…Genome replication
+
+Replication begins in a genomic region called the replication origin (denoted ori) and is performed by molecular copy machines called DNA polymerases. 
+123Finding Origin of Replication Problem:    Input: A DNA string Genome.    Output: The location of ori in Genome.
+
+
+1.2 Hidden Messages in the Replication OriginDnaA boxesHidden Message Problem:  Find a “hidden message” in the replication origin. Input: A string Text. Output: A hidden message ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/973ff420/" title="BioInfo CHALLENGE">     <img class="post_bg" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="BioInfo CHALLENGE"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/973ff420/" title="BioInfo CHALLENGE">BioInfo CHALLENGE</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-05-09T00:21:28.000Z" title="Created 2019-05-09 08:21:28">2019-05-09</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2019-05-20T12:11:46.000Z" title="Updated 2019-05-20 20:11:46">2019-05-20</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/CHALLENGES/">CHALLENGES</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/BioInfo/">BioInfo</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/CHALLENGES/">CHALLENGES</a></span></div><div class="content">I’m a big fan of Scoot H. Young’s Blog. I was fascinated by his MIT CHALLENGE. Ultralearning is always one of my ultimate goal. And now I think this is time for me to march out.
+
+The CHALLENGEThe first challenge of mine is focus on bioinformatics. What I major is bioengineering, but I think I’m really good at Computer Science. So to made the best of my genius, and be more competitive, I think the bioinformatics is the best subject for me to learn at the limited time. 
+After that, I found nearly  ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/ed092bf8/" title="Jupyter Lab服务器端配置">     <img class="post_bg" data-lazy-src="/img/jupyter.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Jupyter Lab服务器端配置"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ed092bf8/" title="Jupyter Lab服务器端配置">Jupyter Lab服务器端配置</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-05-07T02:18:33.000Z" title="Created 2019-05-07 10:18:33">2019-05-07</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2020-08-26T13:20:43.682Z" title="Updated 2020-08-26 21:20:43">2020-08-26</time></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/CS/">CS</a></span></div><div class="content">尝试过Jupyter Lab后，其成为了我最喜欢的IDE。然而在本地使用Anaconda自带的Jupyter略显臃肿，也为了不占用仅有的内存，所以将其配置到服务器上，最终可通过浏览器直接访问。期间踩了些许坑，便记录在此。
+
+
+
+步骤1 生成jupyter_notebook_config.py配置文件通过命令jupyter notebook --generate-config生成配置文件。记录下生成的配置文件位置，例如：/home/.jupyter/jupyter_notebook_config.py
+2.设置访问密码123jupyter notebook passwordEnter password:  ****Verify password: ****
+密码会以hash自动写入到/Users/you/.jupyter/jupyter_notebook_config.json文件中。
+3.编辑配置文件将配置文件改为如下设置：
+1234567c = get_config()# Kernel configc.IPKernelApp.pylab = &#x27;inline&#x27;# N ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/133d488f/" title="《软技能》中的十步学习法">     <img class="post_bg" data-lazy-src="/img/softSkill.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《软技能》中的十步学习法"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/133d488f/" title="《软技能》中的十步学习法">《软技能》中的十步学习法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-04-29T01:19:02.000Z" title="Created 2019-04-29 09:19:02">2019-04-29</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2020-08-26T13:22:14.882Z" title="Updated 2020-08-26 21:22:14">2020-08-26</time></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/Read/">Read</a></span></div><div class="content">程序员均会面临诸如快速学习新技术、新编程语言、新框架等压力。真正的挑战在于建立一种简单、透明、具有支持性、自我完善、有灵活性的进程。《软技能》一书的作者便开发出了这种可重复的自学体系。
+
+体系背后的逻辑在作者职业生涯早年也曾有过将专著一页页读完的经历。这种方法确实能学到东西，但效率低下，在需短时间学习知识时便难以奏效。在寻找更好的自学方法时，作者发现，为了能够掌握一门技术，我们需要了解以下三个要点：
+1．如何开始——要想开始使用自己所学的，我们需要掌握哪些基本知识？
+2．学科范围——我现在学的东西有多宏大？我应该怎么做？在开始阶段，我不需要了解每个细节，但是如果我能对该学科的轮廓有大致的了解，那么将来我就能发现更多细节。
+3．基础知识——不止在开始阶段，要想使用一项特定的技术，我需要了解基本的用户案例和最常见的问题，也需要知道自己学的哪20%就能满足80%的日常应用。
+如果我们了解三项主题——如何开始，我能做什么，以及相关基础知识，那么就能随着学习深入学会所需的其他知识。如果想提前掌握所有知识，那只是在浪费时间，因为真正重要的内容会湮没在那些细枝末节中。
+十步学习法体系“十步学习法”的 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/9814918a/" title="深大定制|Kindle屏保">     <img class="post_bg" data-lazy-src="/img/sdxh.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="深大定制|Kindle屏保"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/9814918a/" title="深大定制|Kindle屏保">深大定制|Kindle屏保</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time class="post-meta-date-created" datetime="2018-09-08T11:28:26.000Z" title="Created 2018-09-08 19:28:26">2018-09-08</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2020-08-26T13:23:59.518Z" title="Updated 2020-08-26 21:23:59">2020-08-26</time></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/DIY/">DIY</a></span></div><div class="content">分享几张DIY的kindle屏保，有kindle的朋友可自取。
+
+
+当然切换默认屏保前是要越狱的，之后可以通过安装linkss插件自定义屏保。如果感兴趣也可以通过教程：制作 Kindle 屏保图片三步走：打开、调整和保存制作自己喜欢的屏保。
+
+
+
+
+
+</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="/img/junyu.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Junyu Chen</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">Articles</div><div class="length_num">10</div></a></div><div class="card-info-data-item is-center">      <a href="/tags"><div class="headline">Tags</div><div class="length_num">7</div></a></div><div class="card-info-data-item is-center"><a href="/categories"><div class="headline">Categories</div><div class="length_num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Junyu25"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Junyu25" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/junyu_pe@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://twitter.com/Junyu_25" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a class="aside-post-cover" href="/posts/8259f6ab/" title="Bullet Points of 10 Steps to Earning Awesome Grades"><img class="aside-post-bg" data-lazy-src="/img/10-Steps.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Bullet Points of 10 Steps to Earning Awesome Grades"/></a><div class="aside-post-info"><a class="aside-post-title" href="/posts/8259f6ab/" title="Bullet Points of 10 Steps to Earning Awesome Grades">Bullet Points of 10 Steps to Earning Awesome Grades</a><time class="aside-post_meta post-meta-date" datetime="2019-08-31T13:03:00.000Z" title="Created 2019-08-31 21:03:00">2019-08-31</time></div></div><div class="aside-recent-post"><a class="aside-post-cover" href="/posts/8942f5da/" title="The Certificate I got from Coursera"><img class="aside-post-bg" data-lazy-src="/img/coursera_certificate.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="The Certificate I got from Coursera"/></a><div class="aside-post-info"><a class="aside-post-title" href="/posts/8942f5da/" title="The Certificate I got from Coursera">The Certificate I got from Coursera</a><time class="aside-post_meta post-meta-date" datetime="2019-08-26T00:55:33.000Z" title="Created 2019-08-26 08:55:33">2019-08-26</time></div></div><div class="aside-recent-post"><a class="aside-post-cover" href="/posts/c3af451e/" title="R - Simulation"><img class="aside-post-bg" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="R - Simulation"/></a><div class="aside-post-info"><a class="aside-post-title" href="/posts/c3af451e/" title="R - Simulation">R - Simulation</a><time class="aside-post_meta post-meta-date" datetime="2019-05-21T01:37:44.000Z" title="Created 2019-05-21 09:37:44">2019-05-21</time></div></div><div class="aside-recent-post"><a class="aside-post-cover" href="/posts/2805751/" title="使用Anki记忆的20条原则"><img class="aside-post-bg" data-lazy-src="/img/anki.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用Anki记忆的20条原则"/></a><div class="aside-post-info"><a class="aside-post-title" href="/posts/2805751/" title="使用Anki记忆的20条原则">使用Anki记忆的20条原则</a><time class="aside-post_meta post-meta-date" datetime="2019-05-20T11:52:59.000Z" title="Created 2019-05-20 19:52:59">2019-05-20</time></div></div><div class="aside-recent-post"><a class="aside-post-cover" href="/posts/4c9b567b/" title="奇特的一生|我的时间统计观"><img class="aside-post-bg" data-lazy-src="/img/RescueTime.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="奇特的一生|我的时间统计观"/></a><div class="aside-post-info"><a class="aside-post-title" href="/posts/4c9b567b/" title="奇特的一生|我的时间统计观">奇特的一生|我的时间统计观</a><time class="aside-post_meta post-meta-date" datetime="2019-05-11T00:59:57.000Z" title="Created 2019-05-11 08:59:57">2019-05-11</time></div></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>Categories</span></div><ul class="card-category-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/BioInfo/"><span class="card-category-list-name">BioInfo</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CHALLENGES/"><span class="card-category-list-name">CHALLENGES</span><span class="card-category-list-count">1</span></a></li>
+                       
+            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href='/tags/Anki/' style='font-size:20px; color:rgb(149, 151, 72)'>Anki</a><a href='/tags/BioInfo/' style='font-size:18px; color:rgb(43, 145, 135)'>BioInfo</a><a href='/tags/CHALLENGES/' style='font-size:16px; color:rgb(13, 105, 159)'>CHALLENGES</a><a href='/tags/CS/' style='font-size:20px; color:rgb(120, 67, 136)'>CS</a><a href='/tags/DIY/' style='font-size:20px; color:rgb(52, 162, 50)'>DIY</a><a href='/tags/R/' style='font-size:16px; color:rgb(173, 154, 40)'>R</a><a href='/tags/Read/' style='font-size:16px; color:rgb(73, 134, 89)'>Read</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/08/"><span class="card-archive-list-date">August 2019</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/05/"><span class="card-archive-list-date">May 2019</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/04/"><span class="card-archive-list-date">April 2019</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2018/09/"><span class="card-archive-list-date">September 2018</span><span class="card-archive-list-count">1</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">Article :</div><div class="webinfo-article-count">10</div></div><div class="webinfo-item"><div class="webinfo-site-wordcount-name">Total Count :</div><div class="webinfo-site-wordcount">9.8k</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">UV :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">PV :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2020 By Junyu Chen</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></section><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script defer="defer" id="ribbon" src="/js/third-party/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script></div></body></html>

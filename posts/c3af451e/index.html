@@ -1,0 +1,535 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>R - Simulation | Junyu's Blog</title><meta name="description" content="Learning Objectives Call the str function on an arbitrary R object     Simulate a random normal variable with an arbitrary mean and standard deviation  Simulate data from a normal linear model     the"><meta name="keywords" content="R"><meta name="author" content="Junyu Chen"><meta name="copyright" content="Junyu Chen"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yoursite.com/posts/c3af451e/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="R - Simulation"><meta property="og:url" content="http://yoursite.com/posts/c3af451e/"><meta property="og:site_name" content="Junyu's Blog"><meta property="og:description" content="Learning Objectives Call the str function on an arbitrary R object     Simulate a random normal variable with an arbitrary mean and standard deviation  Simulate data from a normal linear model     the"><meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><meta property="article:published_time" content="2019-05-21T01:37:44.000Z"><meta property="article:modified_time" content="2020-08-26T13:02:04.597Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  hexoversion: '5.0.2',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days',
+  runtime: false,
+  copyright: {"limitCount":50,"languages":{"author":"Author: Junyu Chen","link":"Link: ","source":"Source: Junyu's Blog","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source."}},
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true,
+  postUpdate: '2020-08-26 21:02:04'
+}</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img {
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 5.0.2"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="/img/junyu.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">10</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">7</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">Categories</div><div class="length_num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/CV/"><i class="fa-fw fas fa-address-book"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div id="body-wrap"><div id="sidebar"><i class="fas fa-arrow-right" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Learning-Objectives"><span class="toc-number">1.</span> <span class="toc-text">Learning Objectives</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#the-str-Function"><span class="toc-number">2.</span> <span class="toc-text">the str Function</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Simulation-Generating-Random-Numbers"><span class="toc-number">3.</span> <span class="toc-text">Simulation - Generating Random Numbers</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Generating-the-same-random-number"><span class="toc-number">3.1.</span> <span class="toc-text">Generating the same random number</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Simulation-Simulating-a-Linear-Model"><span class="toc-number">4.</span> <span class="toc-text">Simulation - Simulating a Linear Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Simualtion-Rnadom-Sampling"><span class="toc-number">5.</span> <span class="toc-text">Simualtion - Rnadom Sampling</span></a></li></ol></div></div></div><header class="post-bg" id="page-header" style="background-image: url(https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">Junyu's Blog</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/CV/"><i class="fa-fw fas fa-address-book"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">R - Simulation</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-05-21T01:37:44.000Z" title="Created 2019-05-21 09:37:44">2019-05-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2020-08-26T13:02:04.597Z" title="Updated 2020-08-26 21:02:04">2020-08-26</time></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>8min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h2 id="Learning-Objectives"><a href="#Learning-Objectives" class="headerlink" title="Learning Objectives"></a>Learning Objectives</h2><ul>
+<li><p>Call the str function on an arbitrary R object   </p>
+</li>
+<li><p>Simulate a random normal variable with an arbitrary mean and standard deviation</p>
+</li>
+<li><p>Simulate data from a normal linear model</p>
+</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="the-str-Function"><a href="#the-str-Function" class="headerlink" title="the str Function"></a>the str Function</h2><p>str: compactly display the internal structure of an R object</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str(str)</span><br></pre></td></tr></table></figure>
+
+<pre><code>function (object, ...)  </code></pre>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str(lm)</span><br></pre></td></tr></table></figure>
+
+<pre><code>function (formula, data, subset, weights, na.action, method = &quot;qr&quot;, model = TRUE, 
+    x = FALSE, y = FALSE, qr = TRUE, singular.ok = TRUE, contrasts = NULL, 
+    offset, ...)  </code></pre>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str(ls)</span><br></pre></td></tr></table></figure>
+
+<pre><code>function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE, 
+    pattern, sorted = TRUE)  </code></pre>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- rnorm(<span class="number">100</span>, <span class="number">2</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">summary(x)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ -6.721  -0.807   1.981   1.919   4.352  15.838 </code></pre>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str(x)</span><br></pre></td></tr></table></figure>
+
+<pre><code> num [1:100] 3.27 3.93 6.42 1.62 3.36 ...</code></pre>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f &lt;- gl(<span class="number">40</span>, <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str(f)</span><br></pre></td></tr></table></figure>
+
+<pre><code> Factor w/ 40 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(datasets)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">head(airquality)</span><br></pre></td></tr></table></figure>
+<table>
+<thead><tr><th scope=col>Ozone</th><th scope=col>Solar.R</th><th scope=col>Wind</th><th scope=col>Temp</th><th scope=col>Month</th><th scope=col>Day</th></tr></thead>
+<tbody>
+    <tr><td>41  </td><td>190 </td><td> 7.4</td><td>67  </td><td>5   </td><td>1   </td></tr>
+    <tr><td>36  </td><td>118 </td><td> 8.0</td><td>72  </td><td>5   </td><td>2   </td></tr>
+    <tr><td>12  </td><td>149 </td><td>12.6</td><td>74  </td><td>5   </td><td>3   </td></tr>
+    <tr><td>18  </td><td>313 </td><td>11.5</td><td>62  </td><td>5   </td><td>4   </td></tr>
+    <tr><td>NA  </td><td> NA </td><td>14.3</td><td>56  </td><td>5   </td><td>5   </td></tr>
+    <tr><td>28  </td><td> NA </td><td>14.9</td><td>66  </td><td>5   </td><td>6   </td></tr>
+</tbody>
+</table>
+
+
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str(airquality)</span><br></pre></td></tr></table></figure>
+
+<pre><code>&#39;data.frame&#39;:    153 obs. of  6 variables:
+ $ Ozone  : int  41 36 12 18 NA 28 23 19 8 NA ...
+ $ Solar.R: int  190 118 149 313 NA NA 299 99 19 194 ...
+ $ Wind   : num  7.4 8 12.6 11.5 14.3 14.9 8.6 13.8 20.1 8.6 ...
+ $ Temp   : int  67 72 74 62 56 66 65 59 61 69 ...
+ $ Month  : int  5 5 5 5 5 5 5 5 5 5 ...
+ $ Day    : int  1 2 3 4 5 6 7 8 9 10 ...</code></pre>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m &lt;- matrix(rnorm(<span class="number">100</span>), <span class="number">10</span>, <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str(m)</span><br></pre></td></tr></table></figure>
+
+<pre><code> num [1:10, 1:10] 1.3157 -0.8322 -1.1879 1.0607 -0.0914 ...</code></pre>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m[,<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+
+
+<ol class=list-inline>
+    <li>1.31574855435227</li>
+    <li>-0.832218308577875</li>
+    <li>-1.18790192747972</li>
+    <li>1.0606597056878</li>
+    <li>-0.0913834161339654</li>
+    <li>0.25791756367502</li>
+    <li>-1.37134438815737</li>
+    <li>0.313414400144491</li>
+    <li>1.43525092704093</li>
+    <li>-0.373120195016343</li>
+</ol>
+
+
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s &lt;- split(airquality, airquality$Month)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str(s)</span><br></pre></td></tr></table></figure>
+
+<pre><code>List of 5
+ $ 5:&#39;data.frame&#39;:    31 obs. of  6 variables:
+  ..$ Ozone  : int [1:31] 41 36 12 18 NA 28 23 19 8 NA ...
+  ..$ Solar.R: int [1:31] 190 118 149 313 NA NA 299 99 19 194 ...
+  ..$ Wind   : num [1:31] 7.4 8 12.6 11.5 14.3 14.9 8.6 13.8 20.1 8.6 ...
+  ..$ Temp   : int [1:31] 67 72 74 62 56 66 65 59 61 69 ...
+  ..$ Month  : int [1:31] 5 5 5 5 5 5 5 5 5 5 ...
+  ..$ Day    : int [1:31] 1 2 3 4 5 6 7 8 9 10 ...
+ $ 6:&#39;data.frame&#39;:    30 obs. of  6 variables:
+  ..$ Ozone  : int [1:30] NA NA NA NA NA NA 29 NA 71 39 ...
+  ..$ Solar.R: int [1:30] 286 287 242 186 220 264 127 273 291 323 ...
+  ..$ Wind   : num [1:30] 8.6 9.7 16.1 9.2 8.6 14.3 9.7 6.9 13.8 11.5 ...
+  ..$ Temp   : int [1:30] 78 74 67 84 85 79 82 87 90 87 ...
+  ..$ Month  : int [1:30] 6 6 6 6 6 6 6 6 6 6 ...
+  ..$ Day    : int [1:30] 1 2 3 4 5 6 7 8 9 10 ...
+ $ 7:&#39;data.frame&#39;:    31 obs. of  6 variables:
+  ..$ Ozone  : int [1:31] 135 49 32 NA 64 40 77 97 97 85 ...
+  ..$ Solar.R: int [1:31] 269 248 236 101 175 314 276 267 272 175 ...
+  ..$ Wind   : num [1:31] 4.1 9.2 9.2 10.9 4.6 10.9 5.1 6.3 5.7 7.4 ...
+  ..$ Temp   : int [1:31] 84 85 81 84 83 83 88 92 92 89 ...
+  ..$ Month  : int [1:31] 7 7 7 7 7 7 7 7 7 7 ...
+  ..$ Day    : int [1:31] 1 2 3 4 5 6 7 8 9 10 ...
+ $ 8:&#39;data.frame&#39;:    31 obs. of  6 variables:
+  ..$ Ozone  : int [1:31] 39 9 16 78 35 66 122 89 110 NA ...
+  ..$ Solar.R: int [1:31] 83 24 77 NA NA NA 255 229 207 222 ...
+  ..$ Wind   : num [1:31] 6.9 13.8 7.4 6.9 7.4 4.6 4 10.3 8 8.6 ...
+  ..$ Temp   : int [1:31] 81 81 82 86 85 87 89 90 90 92 ...
+  ..$ Month  : int [1:31] 8 8 8 8 8 8 8 8 8 8 ...
+  ..$ Day    : int [1:31] 1 2 3 4 5 6 7 8 9 10 ...
+ $ 9:&#39;data.frame&#39;:    30 obs. of  6 variables:
+  ..$ Ozone  : int [1:30] 96 78 73 91 47 32 20 23 21 24 ...
+  ..$ Solar.R: int [1:30] 167 197 183 189 95 92 252 220 230 259 ...
+  ..$ Wind   : num [1:30] 6.9 5.1 2.8 4.6 7.4 15.5 10.9 10.3 10.9 9.7 ...
+  ..$ Temp   : int [1:30] 91 92 93 93 87 84 80 78 75 73 ...
+  ..$ Month  : int [1:30] 9 9 9 9 9 9 9 9 9 9 ...
+  ..$ Day    : int [1:30] 1 2 3 4 5 6 7 8 9 10 ...</code></pre>
+<h2 id="Simulation-Generating-Random-Numbers"><a href="#Simulation-Generating-Random-Numbers" class="headerlink" title="Simulation - Generating Random Numbers"></a>Simulation - Generating Random Numbers</h2><ul>
+<li>rnorm</li>
+<li>dnorm</li>
+<li>pnorm</li>
+<li>rpois</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str(rnorm)</span><br></pre></td></tr></table></figure>
+
+<pre><code>function (n, mean = 0, sd = 1)  </code></pre>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str(dnorm)</span><br></pre></td></tr></table></figure>
+
+<pre><code>function (x, mean = 0, sd = 1, log = FALSE)  </code></pre>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str(qnorm)</span><br></pre></td></tr></table></figure>
+
+<pre><code>function (p, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)  </code></pre>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str(rpois)</span><br></pre></td></tr></table></figure>
+
+<pre><code>function (n, lambda)  </code></pre>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- rnorm(<span class="number">10</span>)</span><br><span class="line">x</span><br></pre></td></tr></table></figure>
+
+
+<ol class=list-inline>
+    <li>-0.666087369538605</li>
+    <li>-1.44040880956661</li>
+    <li>-1.48646639016783</li>
+    <li>-0.418159685775961</li>
+    <li>0.58542380531235</li>
+    <li>-1.25321348722927</li>
+    <li>-1.27424584122045</li>
+    <li>0.691700091609917</li>
+    <li>0.174510667558016</li>
+    <li>0.573314450069069</li>
+</ol>
+
+
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- rnorm(<span class="number">10</span>, <span class="number">20</span>, <span class="number">2</span>)</span><br><span class="line">x</span><br></pre></td></tr></table></figure>
+
+
+<ol class=list-inline>
+    <li>17.9435304870445</li>
+    <li>19.5724651543841</li>
+    <li>19.2634280201875</li>
+    <li>15.6159308600513</li>
+    <li>21.5861218732645</li>
+    <li>21.7677118003667</li>
+    <li>18.3658321172365</li>
+    <li>16.659817189802</li>
+    <li>19.9214964631997</li>
+    <li>19.3704904422907</li>
+</ol>
+
+
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">summary(x)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+-1.4865 -1.2690 -0.5421 -0.4514  0.4736  0.6917 </code></pre>
+<h3 id="Generating-the-same-random-number"><a href="#Generating-the-same-random-number" class="headerlink" title="Generating the same random number"></a>Generating the same random number</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set.seed(<span class="number">1</span>)</span><br><span class="line">rnorm(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+
+<ol class=list-inline>
+    <li>-0.626453810742332</li>
+    <li>0.183643324222082</li>
+    <li>-0.835628612410047</li>
+    <li>1.59528080213779</li>
+    <li>0.329507771815361</li>
+</ol>
+
+
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rnorm(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+
+<ol class=list-inline>
+    <li>-0.820468384118015</li>
+    <li>0.487429052428485</li>
+    <li>0.738324705129217</li>
+    <li>0.575781351653492</li>
+    <li>-0.305388387156356</li>
+</ol>
+
+
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set.seed(<span class="number">1</span>)</span><br><span class="line">rnorm(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+
+<ol class=list-inline>
+    <li>-0.626453810742332</li>
+    <li>0.183643324222082</li>
+    <li>-0.835628612410047</li>
+    <li>1.59528080213779</li>
+    <li>0.329507771815361</li>
+</ol>
+
+
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpois(<span class="number">10</span>, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+
+<ol class=list-inline>
+    <li>0</li>
+    <li>0</li>
+    <li>1</li>
+    <li>1</li>
+    <li>2</li>
+    <li>1</li>
+    <li>1</li>
+    <li>4</li>
+    <li>1</li>
+    <li>2</li>
+</ol>
+
+
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpois(<span class="number">10</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+
+<ol class=list-inline>
+    <li>2</li>
+    <li>3</li>
+    <li>0</li>
+    <li>4</li>
+    <li>1</li>
+    <li>3</li>
+    <li>1</li>
+    <li>1</li>
+    <li>2</li>
+    <li>4</li>
+</ol>
+
+
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpois(<span class="number">10</span>, <span class="number">20</span>)</span><br></pre></td></tr></table></figure>
+
+
+<ol class=list-inline>
+    <li>23</li>
+    <li>20</li>
+    <li>11</li>
+    <li>22</li>
+    <li>24</li>
+    <li>16</li>
+    <li>17</li>
+    <li>18</li>
+    <li>17</li>
+    <li>21</li>
+</ol>
+
+
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ppois(<span class="number">2</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p>0.676676416183063</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ppois(<span class="number">4</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p>0.947346982656289</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ppois(<span class="number">6</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p>0.995466194473751</p>
+<h2 id="Simulation-Simulating-a-Linear-Model"><a href="#Simulation-Simulating-a-Linear-Model" class="headerlink" title="Simulation - Simulating a Linear Model"></a>Simulation - Simulating a Linear Model</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">set.seed(<span class="number">20</span>)</span><br><span class="line">x &lt;- rnorm(<span class="number">100</span>)</span><br><span class="line">e &lt;- rnorm(<span class="number">100</span>, <span class="number">0</span>, <span class="number">2</span>)</span><br><span class="line">y &lt;- <span class="number">0.5</span> + <span class="number">2</span> * x + e</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">summary(y)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+-6.4084 -1.5402  0.6789  0.6893  2.9303  6.5052 </code></pre>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plot(x, y)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src= "/img/loading.gif" data-lazy-src="/img/output_41_0.png" alt="png"></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">set.seed(<span class="number">10</span>)</span><br><span class="line">x &lt;- rbinom(<span class="number">100</span>, <span class="number">1</span>, <span class="number">0.5</span>)</span><br><span class="line">e &lt;- rnorm(<span class="number">100</span>, <span class="number">0</span>, <span class="number">2</span>)</span><br><span class="line">y &lt;- <span class="number">0.5</span> + <span class="number">2</span> * x + e</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">summary(y)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+-3.4936 -0.1409  1.5767  1.4322  2.8397  6.9410 </code></pre>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plot(x, y)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src= "/img/loading.gif" data-lazy-src="/img/output_44_0.png" alt="png"></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">set.seed(<span class="number">1</span>)</span><br><span class="line">x &lt;- rnorm(<span class="number">100</span>)</span><br><span class="line">log.mu &lt;- <span class="number">0.5</span> + <span class="number">0.3</span> * x</span><br><span class="line">y &lt;- rpois(<span class="number">100</span>, exp(log.mu))</span><br><span class="line">summary(y)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   0.00    1.00    1.00    1.55    2.00    6.00 </code></pre>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plot(x, y)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src= "/img/loading.gif" data-lazy-src="/img/output_46_0.png" alt="png"></p>
+<h2 id="Simualtion-Rnadom-Sampling"><a href="#Simualtion-Rnadom-Sampling" class="headerlink" title="Simualtion - Rnadom Sampling"></a>Simualtion - Rnadom Sampling</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set.seed(<span class="number">1</span>)</span><br><span class="line">sample(<span class="number">1</span>:<span class="number">10</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+
+
+<ol class=list-inline>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>7</li>
+</ol>
+
+
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sample(<span class="number">1</span>:<span class="number">10</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+
+
+<ol class=list-inline>
+    <li>3</li>
+    <li>9</li>
+    <li>8</li>
+    <li>5</li>
+</ol>
+
+
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sample(letters, <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+
+<ol class=list-inline>
+    <li>'q'</li>
+    <li>'b'</li>
+    <li>'e'</li>
+    <li>'x'</li>
+    <li>'p'</li>
+</ol>
+
+
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sample(<span class="number">1</span>:<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+
+<ol class=list-inline>
+    <li>4</li>
+    <li>7</li>
+    <li>10</li>
+    <li>6</li>
+    <li>9</li>
+    <li>2</li>
+    <li>8</li>
+    <li>3</li>
+    <li>1</li>
+    <li>5</li>
+</ol>
+
+
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sample(<span class="number">1</span>:<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+
+<ol class=list-inline>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>1</li>
+    <li>9</li>
+    <li>5</li>
+    <li>10</li>
+    <li>8</li>
+    <li>6</li>
+    <li>7</li>
+</ol>
+
+
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sample(<span class="number">1</span>:<span class="number">10</span>, replace = <span class="literal">TRUE</span>)</span><br></pre></td></tr></table></figure>
+
+
+<ol class=list-inline>
+    <li>2</li>
+    <li>9</li>
+    <li>7</li>
+    <li>8</li>
+    <li>2</li>
+    <li>8</li>
+    <li>5</li>
+    <li>9</li>
+    <li>7</li>
+    <li>8</li>
+</ol>
+
+
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Junyu Chen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://yoursite.com/posts/c3af451e/">http://yoursite.com/posts/c3af451e/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/R/">R</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/8942f5da/"><img class="prev-cover" data-lazy-src="/img/coursera_certificate.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">The Certificate I got from Coursera</div></div></a></div><div class="next-post pull-right"><a href="/posts/2805751/"><img class="next-cover" data-lazy-src="/img/anki.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">使用Anki记忆的20条原则</div></div></a></div></nav></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2020 By Junyu Chen</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="font_plus" type="button" title="Increase Font Size"><i class="fas fa-plus"></i></button><button id="font_minus" type="button" title="Decrease Font Size"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></section><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script defer="defer" id="ribbon" src="/js/third-party/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script></div></body></html>

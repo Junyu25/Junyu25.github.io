@@ -1,0 +1,143 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>使用Anki记忆的20条原则 | Junyu's Blog</title><meta name="description" content="什么是最好、最有效的方式用以编排你将要记忆的内容呢？你学习的速度将取决于你制定牌组素材的方法。坏的卡片等于坏的学习！但如果相同的材料制定出更好的卡片，你将会学得更快、更不费力。 SuperMemo的创始人Piotr Wozniak教授曾写了详细的原则和建议指导我们如何创建学习材料。这将有助引导我们用最高效的方式去创建和组织我们的Anki牌组。这20条原则将以重要性罗列。    原则1. 理解在先永"><meta name="keywords" content="Anki"><meta name="author" content="Junyu Chen"><meta name="copyright" content="Junyu Chen"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yoursite.com/posts/2805751/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="使用Anki记忆的20条原则"><meta property="og:url" content="http://yoursite.com/posts/2805751/"><meta property="og:site_name" content="Junyu's Blog"><meta property="og:description" content="什么是最好、最有效的方式用以编排你将要记忆的内容呢？你学习的速度将取决于你制定牌组素材的方法。坏的卡片等于坏的学习！但如果相同的材料制定出更好的卡片，你将会学得更快、更不费力。 SuperMemo的创始人Piotr Wozniak教授曾写了详细的原则和建议指导我们如何创建学习材料。这将有助引导我们用最高效的方式去创建和组织我们的Anki牌组。这20条原则将以重要性罗列。    原则1. 理解在先永"><meta property="og:image" content="http://yoursite.com/img/anki.jpg"><meta property="article:published_time" content="2019-05-20T11:52:59.000Z"><meta property="article:modified_time" content="2020-08-26T13:17:42.590Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  hexoversion: '5.0.2',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days',
+  runtime: false,
+  copyright: {"limitCount":50,"languages":{"author":"Author: Junyu Chen","link":"Link: ","source":"Source: Junyu's Blog","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source."}},
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true,
+  postUpdate: '2020-08-26 21:17:42'
+}</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img {
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 5.0.2"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="/img/junyu.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">10</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">7</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">Categories</div><div class="length_num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/CV/"><i class="fa-fw fas fa-address-book"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div id="body-wrap"><div id="sidebar"><i class="fas fa-arrow-right" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%88%991-%E7%90%86%E8%A7%A3%E5%9C%A8%E5%85%88"><span class="toc-number">1.</span> <span class="toc-text">原则1. 理解在先</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%88%992-%E5%85%A8%E5%B1%80%E5%87%BA%E5%8F%91"><span class="toc-number">2.</span> <span class="toc-text">原则2. 全局出发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%88%993-%E5%BB%BA%E7%AB%8B%E5%9F%BA%E7%A1%80"><span class="toc-number">3.</span> <span class="toc-text">原则3. 建立基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%88%994-%E7%AE%80%E5%8C%96"><span class="toc-number">4.</span> <span class="toc-text">原则4. 简化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%88%995-%E4%BD%BF%E7%94%A8%E5%AE%8C%E5%9E%8B%E5%A1%AB%E7%A9%BA"><span class="toc-number">5.</span> <span class="toc-text">原则5. 使用完型填空</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%88%996-%E4%BD%BF%E7%94%A8%E5%9B%BE%E5%83%8F"><span class="toc-number">6.</span> <span class="toc-text">原则6. 使用图像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%88%997-%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BF%86%E6%9C%AF"><span class="toc-number">7.</span> <span class="toc-text">原则7. 使用记忆术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%88%998-%E4%BD%BF%E7%94%A8%E5%9B%BE%E5%83%8F%E5%AE%8C%E5%9E%8B"><span class="toc-number">8.</span> <span class="toc-text">原则8. 使用图像完型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%88%999-%E9%81%BF%E5%85%8D%E9%9B%86%E5%90%88"><span class="toc-number">9.</span> <span class="toc-text">原则9. 避免集合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%88%9910-%E9%81%BF%E5%85%8D%E6%9E%9A%E4%B8%BE"><span class="toc-number">10.</span> <span class="toc-text">原则10. 避免枚举</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%88%9911-%E4%B8%8E%E5%B9%B2%E6%89%B0%E5%81%9A%E6%96%97%E4%BA%89"><span class="toc-number">11.</span> <span class="toc-text">原则11. 与干扰做斗争</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%88%9912-%E4%BC%98%E5%8C%96%E6%8E%AA%E8%BE%9E"><span class="toc-number">12.</span> <span class="toc-text">原则12. 优化措辞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%88%9913-%E8%81%94%E6%83%B3%E8%AE%B0%E5%BF%86"><span class="toc-number">13.</span> <span class="toc-text">原则13. 联想记忆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%88%9914-%E4%BD%BF%E7%94%A8%E4%B8%AA%E6%80%A7%E8%AF%9D%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-number">14.</span> <span class="toc-text">原则14. 使用个性话的例子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%88%9915-%E5%80%9F%E5%8A%A9%E6%83%85%E6%84%9F%E7%8A%B6%E6%80%81"><span class="toc-number">15.</span> <span class="toc-text">原则15. 借助情感状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%88%9916-%E5%88%A9%E7%94%A8%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-number">16.</span> <span class="toc-text">原则16. 利用上下文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%88%9917-%E5%88%A9%E7%94%A8%E5%86%97%E4%BD%99"><span class="toc-number">17.</span> <span class="toc-text">原则17. 利用冗余</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%88%9918-%E6%8F%90%E4%BE%9B%E6%9D%A5%E6%BA%90"><span class="toc-number">18.</span> <span class="toc-text">原则18. 提供来源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%88%9919-%E4%BD%BF%E7%94%A8%E6%97%B6%E9%97%B4%E6%88%B3"><span class="toc-number">19.</span> <span class="toc-text">原则19. 使用时间戳</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%88%9920-%E7%A1%AE%E8%AE%A4%E4%BC%98%E5%85%88%E5%BA%A6"><span class="toc-number">20.</span> <span class="toc-text">原则20. 确认优先度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="toc-number">21.</span> <span class="toc-text">参考文章</span></a></li></ol></div></div></div><header class="post-bg" id="page-header" style="background-image: url(/img/anki.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">Junyu's Blog</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/CV/"><i class="fa-fw fas fa-address-book"></i><span> CV</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">使用Anki记忆的20条原则</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-05-20T11:52:59.000Z" title="Created 2019-05-20 19:52:59">2019-05-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2020-08-26T13:17:42.590Z" title="Updated 2020-08-26 21:17:42">2020-08-26</time></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>8min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><p>什么是最好、最有效的方式用以编排你将要记忆的内容呢？你学习的速度将取决于你制定牌组素材的方法。坏的卡片等于坏的学习！但如果相同的材料制定出更好的卡片，你将会学得更快、更不费力。</p>
+<p>SuperMemo的创始人Piotr Wozniak教授曾写了详细的原则和建议指导我们如何创建学习材料。这将有助引导我们用最高效的方式去创建和组织我们的Anki牌组。这20条原则将以重要性罗列。</p>
+<a id="more"></a>
+
+
+<h2 id="原则1-理解在先"><a href="#原则1-理解在先" class="headerlink" title="原则1. 理解在先"></a>原则1. 理解在先</h2><p>永远不要记忆你不理解的东西！像一个字一个字记忆文言文没有任何价值，如果你不理解每个字所代表的意思的话。</p>
+<p>更糟糕的是，你在“盲目学习”下浪费的时间相较于学习记忆你理解的东西是巨大的。这将会打乱和破坏你的学习进程。</p>
+<p>当你分享自己的牌组给他人时，这将会是个挑战。你会在接下来的原则中学到个性化和连接自己的材料，这会让他人更难地使用你的牌组，也会让你使用别人的牌组更加困难。</p>
+<p>总之，永远都不要记忆你未首要理解的东西。</p>
+<h2 id="原则2-全局出发"><a href="#原则2-全局出发" class="headerlink" title="原则2. 全局出发"></a>原则2. 全局出发</h2><p>不要记忆关系不紧密的事实。反之，在打散为小的记忆单位前因从全局出发。将一本书或一个章节的中心思想放在一起，确保你知道所学东西的整体轮廓。如果你没有清晰的全局，记忆关系不紧密的事实将会变得更加困难和费时。</p>
+<h2 id="原则3-建立基础"><a href="#原则3-建立基础" class="headerlink" title="原则3. 建立基础"></a>原则3. 建立基础</h2><p>永远都要从基础开始，不要忽视它们。不要从高级、复杂和困难的概念开始记忆，从最简单的概念开始（参见原则4）并将它们构建起来。你总是可以在之后记忆复杂的东西。</p>
+<p>基础的内容只会占你少量的时间去学习，但在最后你会乐意将时间放在这上面。记忆明显的知识不是在浪费时间！忘记基础知识会花费你代价更高的时间和精力。</p>
+<h2 id="原则4-简化"><a href="#原则4-简化" class="headerlink" title="原则4. 简化"></a>原则4. 简化</h2><p>定制的材料越简单越好，简化的模板更容易建立、学习和记忆。简化不意味着丢失信息或略过者重要的部分（虽然如果你不注意的话，还是会发生的）。简化是用最少的语言表达最多的事情。</p>
+<p>简化是必要的有两点缘由。第一，简单是更易于记忆的。记忆一个概念就像在玩迷宫游戏，当你的大脑知道清晰的路线就会变得简单。如果概念简单的话，你大脑中吗迷宫就会变得更容易定位。第二，简单的items会让在Anki中安排重复变得更简单。通常来说，需要花越长时间记忆的概念越简单越好。特别是答案，应该越短越好。</p>
+<p>如果简化不管用的话，看下面的原则。</p>
+<h2 id="原则5-使用完型填空"><a href="#原则5-使用完型填空" class="headerlink" title="原则5. 使用完型填空"></a>原则5. 使用完型填空</h2><p>完型填空——删除特定的单词或短语——是简单和高效的。还可以加速记忆。完型填空是初学者的极佳选择。</p>
+<p>作为初学者，如果你发现很难遵循最小信息原则，请用完型填空。如果你是高阶用户，你同样会喜欢完型填空。完型填空是将教科书内容转化为知识点的快捷有效方法，并适合以间隔重复的方法来学习。完型填空构成了一种称之为“增量阅读”的快速阅读和学习技巧的核心。</p>
+<p>下图是用MonokaiCloze模板制作的选择完型：<br><img src= "/img/loading.gif" data-lazy-src="/img/rule5.png"></p>
+<h2 id="原则6-使用图像"><a href="#原则6-使用图像" class="headerlink" title="原则6. 使用图像"></a>原则6. 使用图像</h2><p>视觉皮层是大脑中用来处理视觉刺激的部分。该部分在进化过程中得以充分的发展，这也是为什么我们常常会说一图胜千言。图像信息通常比文字信息更容易记忆。但是使用图像的缺点却是你要花大量的时间去使用素材，这未必都是值得的。</p>
+<h2 id="原则7-使用记忆术"><a href="#原则7-使用记忆术" class="headerlink" title="原则7. 使用记忆术"></a>原则7. 使用记忆术</h2><p>记忆术通常都是极度高效的，它会让记忆变得更为简单。记忆术是帮助你保持信息的工具或技巧。通常的例子是“数字记忆系统”，它是一种将数字转换成字母以便于记忆的系统。如较为常用的“数字挂钩法”用的就是该原理。思维导图创始人东尼·博赞写过很多这方面的书，记忆大师多米尼克的《我最想要的记忆魔法书》也推荐一读。</p>
+<h2 id="原则8-使用图像完型"><a href="#原则8-使用图像完型" class="headerlink" title="原则8. 使用图像完型"></a>原则8. 使用图像完型</h2><p>图象填空和文字填空一样，只不过是把缺失的文字替换成确实的图象而已。图像填空对于学习医学和生物学非常有帮助。</p>
+<p>下图是用Anki图像完型制作插件<a target="_blank" rel="noopener" href="https://ankiweb.net/shared/info/1111933094">Image Occlusion Enhanced</a>并将之应用的实例：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="/img/rule8.png"></p>
+<h2 id="原则9-避免集合"><a href="#原则9-避免集合" class="headerlink" title="原则9. 避免集合"></a>原则9. 避免集合</h2><p>集合就是一堆有特定性质的东西的组合，比如这20条原则，或者是“桃子、梨子、苹果”这一水果的集合。像欧盟的成员国有哪些？这类集合问题是十分难以记忆的。但是有时集合又是无法避免的，如果你必须记忆一个集合，至少将它转换为枚举列表（原则 10）。</p>
+<h2 id="原则10-避免枚举"><a href="#原则10-避免枚举" class="headerlink" title="原则10. 避免枚举"></a>原则10. 避免枚举</h2><p>枚举是一个有排列顺序的列表。如果你在记忆这20个原则列表，按数字排列的顺序记忆仍是十分困难的，但至少比乱序记忆来的强。按字母顺序罗列一堆欧盟国家是一个典型的枚举列表。即便枚举比普通列表好一点，但还是要尽量避免记忆它。</p>
+<p>如果你必须使用枚举列表的话，尝试使用间隔的完型填空或者是用记忆术将数字顺序与列表内容挂钩起来吧。</p>
+<p>下图是Anki插件<a target="_blank" rel="noopener" href="https://ankiweb.net/shared/info/969733775">Cloze Overlapper</a> 的使用效果：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="/img/rule10.gif" alt="Cloze Overlapper"></p>
+<h2 id="原则11-与干扰做斗争"><a href="#原则11-与干扰做斗争" class="headerlink" title="原则11. 与干扰做斗争"></a>原则11. 与干扰做斗争</h2><p>当你学习相似的内容时会很经常混淆他们。<strong>记忆干扰</strong> 是当你对一项内容的知识使记住另一项内容更加困难。例如你在学习英语单词时可能经常搞乱“historic”和”historical“的意思，这就是记忆干扰的迹象了。</p>
+<p>记忆干扰是导致遗忘的最大原因之一。所以该如何避免呢？发现和消除。当你察觉到发生记忆干扰时，你必须花费精力去改变你的卡片内容，让其避免混淆。你可以让它变得更个性化（原则14）和利用上下文（原则16）等方式优化卡片。</p>
+<h2 id="原则12-优化措辞"><a href="#原则12-优化措辞" class="headerlink" title="原则12. 优化措辞"></a>原则12. 优化措辞</h2><p>一些表达可能会是易于混淆和模糊的。每个词有不同的意思和解读，现在可能对你来说是清晰的，但之后可能就不一定了。再者，通常用简单的词语就可以总结整个句子。所以优化措辞是有必要的。</p>
+<p>优化措辞意味着将一个概念转换为一些清晰且必须的词语。优化措辞有助于减少错误，提神准确度，减少反应时间和提高注意力。</p>
+<h2 id="原则13-联想记忆"><a href="#原则13-联想记忆" class="headerlink" title="原则13. 联想记忆"></a>原则13. 联想记忆</h2><p>联想其他记忆有助于建立上下文，简化措辞和减少干扰。例如，使用 “shamelessly humble and supplicant” （谦卑和恳求者）替换 “shamelessly conscious of one’s failings and asking in a begging way”可以更好地帮助我们记忆。</p>
+<h2 id="原则14-使用个性话的例子"><a href="#原则14-使用个性话的例子" class="headerlink" title="原则14. 使用个性话的例子"></a>原则14. 使用个性话的例子</h2><p>通过连接个性化的例子有助于提升记忆且对抵抗记忆干扰很有效果。例如，What is the name of a soft bed without arms or back? (就像罗伯特他爸妈家那张那种)就会很容易勾起你的回忆。</p>
+<h2 id="原则15-借助情感状态"><a href="#原则15-借助情感状态" class="headerlink" title="原则15. 借助情感状态"></a>原则15. 借助情感状态</h2><p>强烈的情感有助于记忆。生动和震惊的例子往往容易记住。如果你将例子表达地生动和令人震惊的话，你将会感叹原来记忆是如此简单。</p>
+<h2 id="原则16-利用上下文"><a href="#原则16-利用上下文" class="headerlink" title="原则16. 利用上下文"></a>原则16. 利用上下文</h2><p>上下文的线索让你准备回答的简单方式，它可能是单词或图像。上下文线索能简化措辞并将概念放在一个类别里。例如，“author: Getting Things Done” 是比 “Who wrote the book called Getting Things Done?” 更简单的表达方式。</p>
+<h2 id="原则17-利用冗余"><a href="#原则17-利用冗余" class="headerlink" title="原则17. 利用冗余"></a>原则17. 利用冗余</h2><p>冗余意味着用不同的方式展示信息。这并不是浪费时间或与简单化原则相互违背。用不同的方式重复信息可以推进记忆与知识内化。</p>
+<p>被动与主动的做法。如果你正在学习一门外语。例如：世界语：你会经常构建一些词组如：phone-telefono，language-lingvo，hope-esperanto等等。这些词组需要对外来词汇进行主动回忆。不进行主动回忆，保持被动的认知，你可能在记忆telefono-phone, lingvo-language, 或者 esperanto-hope时失败。添加新的元素以后交换问题与答案在某些情况下可能是多余的，但是它不会违背最小信息原则。你的item可能变得更加简并且让你对元素的含义了解的更加深刻。</p>
+<h2 id="原则18-提供来源"><a href="#原则18-提供来源" class="headerlink" title="原则18. 提供来源"></a>原则18. 提供来源</h2><p>除了已充分验证的知识，建议你加上收集的知识素材的来源。来源出处有助于区分相互冲突的信息和帮助你决定概念的可行度和重要性。有资料来源，就能据此更可靠地推测选择哪些信息是更为可信的。要进一步增加可信度，添加标签也十分有用(例如: “注意!” “有其他不同来源!”等)。信息来源应该是伴随该知识条目，而非本身变成需要学习知识的一部分，除非它对你回忆起该知识十分关键。</p>
+<h2 id="原则19-使用时间戳"><a href="#原则19-使用时间戳" class="headerlink" title="原则19. 使用时间戳"></a>原则19. 使用时间戳</h2><p>时间戳意味着提供知识获取、创建或记录的时间。这对不稳定的信息是十分重要的。例如，而经济指数，高新技术，个人数据等则信息几乎都是变化的。有了新数据后，你可以更新相关的项目。不幸的是，在大多数情况下你都不得不重新记一遍早已过时的知识;然你几乎不会想要记住时间戳标记本身。如果你想记住在既定时间内某一特定数据的变化(比如不同年份的国民生产总值)，时间戳标记此时本身就成为需要学习的知识。</p>
+<h2 id="原则20-确认优先度"><a href="#原则20-确认优先度" class="headerlink" title="原则20. 确认优先度"></a>原则20. 确认优先度</h2><p> 最后不要忘了确认知识记忆的优先顺序。一些信息会比另一些信息来的重要，一些引用源也会比其它的好。记忆一整本书是不可能的，专注于最终要的信息！执行该原则的一个方法是将没这么重要的信息以括号插入的方式放入你的笔记中。</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p> <a target="_blank" rel="noopener" href="https://alexvermeer.com/anki-essentials/">https://alexvermeer.com/anki-essentials/</a><br> <a target="_blank" rel="noopener" href="https://github.com/ninja33/sm-20-rules-cn">https://github.com/ninja33/sm-20-rules-cn</a><br> <a target="_blank" rel="noopener" href="http://super-memory.com/articles/20rules.htm">http://super-memory.com/articles/20rules.htm</a></p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Junyu Chen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://yoursite.com/posts/2805751/">http://yoursite.com/posts/2805751/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Anki/">Anki</a></div><div class="post_share"><div class="social-share" data-image="/img/anki.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/c3af451e/"><img class="prev-cover" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">R - Simulation</div></div></a></div><div class="next-post pull-right"><a href="/posts/4c9b567b/"><img class="next-cover" data-lazy-src="/img/RescueTime.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">奇特的一生|我的时间统计观</div></div></a></div></nav></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2020 By Junyu Chen</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="font_plus" type="button" title="Increase Font Size"><i class="fas fa-plus"></i></button><button id="font_minus" type="button" title="Decrease Font Size"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></section><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script defer="defer" id="ribbon" src="/js/third-party/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script></div></body></html>
