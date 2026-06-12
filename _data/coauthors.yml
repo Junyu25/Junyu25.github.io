@@ -1,0 +1,5 @@
+# Map co-author display names to homepage links.
+# Example:
+# "lastname":
+#   - firstname: ["First", "F."]
+#     url: https://example.com
