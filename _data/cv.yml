@@ -1,0 +1,106 @@
+cv:
+  name: Junyu Chen
+  label: Bioinformatics Researcher
+  email: junyu4@illinois.edu
+  location: Urbana-Champaign, IL
+  image: ""
+  summary: Bioinformatics researcher working on the microbiome, metagenomics, and reproducible analysis pipelines.
+
+  social_networks:
+    - network: GitHub
+      username: Junyu25
+    - network: X
+      username: Junyu_25
+
+  sections:
+    Education:
+      - institution: Shenzhen University
+        location: Shenzhen, China
+        area: Bioengineering
+        studyType: B.Eng., College of Life and Ocean Sciences
+        start_date: 2016-09
+        end_date: 2020-07
+
+      - institution: Chinese Academy of Sciences
+        location: Shenzhen, China
+        area: Synthetic Biology
+        studyType: Visiting Student, Shenzhen Institute of Synthetic Biology
+        start_date: 2019-07
+        end_date: 2020-07
+
+    Experience:
+      - company: Shenzhen Institute of Synthetic Biology (iSynBio), CAS
+        position: Research Assistant
+        location: Shenzhen, China
+        start_date: 2019
+        end_date: 2020
+        summary: "Advisor: Prof. Lei Dai"
+        highlights:
+          - Established and maintained the LD Lab GitHub group with 8 project repositories.
+          - Led the release and deployment of analysis pipelines on a High-Performance Computing (HPC) cluster.
+          - Supported 3 main research projects and trained at least 5 research assistants on pipeline and software usage.
+          - Contributed to pipeline design and testing for 16S rRNA gene amplicon and metagenomics data analysis.
+
+    Research:
+      - company: Meta-analysis of microbiome data
+        position: Research Assistant
+        location: iSynBio, CAS
+        summary: "Advisors: Prof. Tong Si, Prof. Lei Dai"
+        highlights:
+          - Customized the Virulence Factors Database (VFDB) for the HUMAnN2 pipeline and analyzed virulence gene abundance across datasets.
+          - Developed a pipeline for gene-abundance analysis based on translated search for CAZy and other databases.
+          - Mined biosynthetic gene clusters (BGCs) of interest in metagenomics data and evaluated differential expression in paired metatranscriptomics data.
+
+      - company: Whole-genome sequencing (WGS) for culturomics
+        position: Research Assistant
+        location: iSynBio, CAS
+        summary: "Advisor: Prof. Lei Dai"
+        highlights:
+          - Built pipelines to inspect the taxonomy and phylogeny of gut microbes using consensus vsearch and multiple sequence alignment, greatly reducing runtime versus commercial software.
+          - Developed and deployed robust data-processing pipelines for gut microbe and bacteriophage isolate WGS data.
+
+      - company: Primer-Coverage for Amplicon-Sequencing (PCAS) Database
+        position: Visiting Student
+        location: iSynBio, CAS
+        summary: "Advisor: Prof. Lei Dai"
+        highlights:
+          - Statistically analyzed the conservation of 23S rRNA using R and Python.
+          - Designed amplicon primers for 23S rRNA from conserved regions and used in silico PCR to evaluate primer performance.
+          - Contributed to the DPSN and PCAS databases.
+
+      - company: iGEM 2018 — Synthetic biology competition
+        position: Team Member, SZU-China
+        highlights:
+          - Engineered an insect-infecting fungus chassis to tackle cockroach control via enhanced adhesion, penetration, and immune-avoidance.
+          - Led upstream design, InterLab experiments, Wiki construction, and communication with iGEM Headquarters.
+          - 2nd Runner-Up (343 teams), Gold medal, and multiple special-prize nominations.
+
+    Skills:
+      - name: Programming
+        keywords: "Python, R, Shell, C, SQL, LaTeX"
+      - name: Pipelines
+        keywords: "QIIME2, HUMAnN2, MetaBGC, Snakemake, Nextflow"
+      - name: Platforms
+        keywords: "Linux/Unix, WSL, HPC cluster, Google Cloud Platform"
+      - name: Tools
+        keywords: "Docker, Git, Conda, Bioconductor, Jupyter, RStudio"
+
+    Languages:
+      - name: Mandarin
+        summary: "Native speaker"
+      - name: English
+        summary: "Fluent (IELTS 7.0)"
+
+    Awards:
+      - title: 2nd Runner-Up, iGEM International Competition
+        date: 2018
+        awarder: iGEM Foundation
+      - title: Outstanding Graduate
+        date: 2020
+        awarder: Shenzhen University
+      - title: Star of Self-Improvement
+        date: 2020
+        awarder: Shenzhen University
+      - title: Dean Scholarship
+        date: 2019
+        awarder: Shenzhen University
